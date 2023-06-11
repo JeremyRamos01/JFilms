@@ -1,0 +1,23 @@
+<div style="text-align: center;margin-top: 2rem; width: 15rem; box-shadow: 5px 10px black;">
+    <button (click)="aumentar()" class="p-button plus"><h3>+</h3></button>
+    <p style="font-size: 25px;">Entrada Normal <b>9.99€</b></p>
+    <p>{{asientos}}</p>
+    <p></p>
+    <button *ngIf="asientos > 0" (click)="disminuir()" class="p-button plus"><h3>-</h3></button>
+
+</div>
+<div style=" background-color: black; height: 40rem; margin-top: 3rem;box-shadow: 5px 10px rgb(84, 80, 80);">
+    <div style="text-align: center; margin-top: 2rem;">
+            <div style="background-color: white; width: 60rem; height: 3rem; margin: auto;margin-bottom: 7%;">
+            <h1 style="color: black;">Pantalla</h1>
+            </div>
+    </div>
+    <div style="text-align: center; margin-top: 1rem;  width: 50%;margin-left: 25%;">       
+        <div *ngFor="let butaca of butacas" style="display: inline-block; margin: 1rem;">
+            <button [disabled]="butaca.tomada" (click)="seleccionada(butaca)" [ngClass]="{selected: butaca.reservada, reserved: butaca.tomada}"  class="p-button plus"><p>{{butaca.numero}}<p></button>
+        </div>
+</div>
+</div>
+<div >
+<button (click)="reservar()" class="p-button reservedButton"><h3 style="margin-left: 1.8em;">Reservar</h3></button>
+</div>

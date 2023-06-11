@@ -1,0 +1,2 @@
+keytool -genkeypair -alias JFilmsKeyPair -keyalg RSA -keysize 4096 -validity 365 -storetype PKCS12  -keystore JFilms_keystore.jks -storepass 1234567
+keytool -genkeypair -alias JFilmsKeyPair -keyalg RSA -keysize 4096 -validity 365 -storetype JKS -keystore JFilmsKeyPair_keystore.jks -storepass 1234567

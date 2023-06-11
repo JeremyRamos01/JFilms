@@ -1,0 +1,9 @@
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide text-white text-center" *ngFor="let item of cast">
+            <img src="https://image.tmdb.org/t/p/w500{{item.profile_path}}" alt="item.name" class="img-thumbnail"> {{item.name}}
+        </div>
+        
+    </div>
+
+</div>

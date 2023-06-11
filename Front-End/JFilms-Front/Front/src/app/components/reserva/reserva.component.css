@@ -1,0 +1,27 @@
+.reservedButton{
+    background-color:#262020;
+    width:15em;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom:10px;
+    border-radius: 20px 5px 20px; 
+    border: #262020;
+    margin-left: 33em;
+    margin-bottom: 100px;
+}
+
+.reservedButton:hover{
+    background-color: rgb(238, 233, 233);
+    color: red;
+
+}
+
+.tableTitle{
+    margin-left: 33em;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 30px;
+    font-weight: bold;
+    color: #e1dede;
+    text-align: center;
+}

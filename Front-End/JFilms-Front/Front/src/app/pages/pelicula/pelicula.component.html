@@ -1,0 +1,27 @@
+<div class="rating">
+    <button class="btn btn-outline-danger" (click)="onRegresar()">Volver</button>
+</div>
+<div class="row animate__animated animate__backInRight contenedor" *ngIf="movie" style="height:10% ;">
+    <div class="col">
+        <img src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}" [alt]="movie.title" class="img-thumbnail sombra">
+        <div style="float: right;margin-right: 10%; width: 40rem;text-align: center;">
+            <h2 style="text-decoration: underline">Salas</h2>
+            <div class="col" *ngFor=" let x of salas">
+                <button (click)="onButacas(x.id)" class="p-button sombra salas"><h4 style="margin-left:3.3em;">Sala {{x.id}} <br> {{x.horaSala}}</h4></button>
+            </div>
+        </div>
+        <star-rating [value]="movie.vote_average" [totalstars]=" 10 " checkedcolor="red" [readonly]="true" uncheckedcolor="gray" size="30px "></star-rating>
+        <div class="row">
+            <div class="col rating">
+                {{movie.vote_average | number:'1.1-2'}}
+            </div>
+            <h3>{{movie.title}}</h3>
+            <div class="col text-white">
+                <div class="col" style="max-width: 30%;">
+                    {{movie.overview}}
+                </div>
+            </div>
+        </div>
+    
+    </div>
+</div>

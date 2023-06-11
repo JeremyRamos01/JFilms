@@ -1,0 +1,42 @@
+.plus{
+    background-color:#262020;
+    width:3.5em;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom:10px;
+    border-radius: 20px 5px 20px; 
+    border: #262020;
+}
+
+.plus:hover{
+    background-color: rgb(238, 233, 233);
+    color: red;
+
+}
+
+.selected{
+    background-color: rgb(212, 142, 13);
+}
+
+.reserved{
+    background-color: rgb(255, 0, 0);
+    color: white;
+}
+
+.reservedButton{
+    background-color:#262020;
+    width:15em;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom:10px;
+    border-radius: 20px 5px 20px; 
+    border: #262020;
+    margin-left: 33em;
+    margin-bottom: 100px;
+}
+
+.reservedButton:hover{
+    background-color: rgb(238, 233, 233);
+    color: red;
+
+}

@@ -1,0 +1,49 @@
+<div class="col-md-6 offset-md-3 mt-5">
+    <div class="card" style="background-color: #262020;color: white; box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);margin-top: 10%;">
+        <h4 class="card-header rating" style="text-align: center;font-size: 40px; ">Register</h4>
+        <div class="card-body">
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <div class="form-group" style="margin-top: 2%;">
+                    <label for="email">Email</label>
+                    <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submittedEmail }" />
+                    <div class="invalid-feedback">
+                        <div>Correo necesario</div>
+                    </div>
+                </div>
+                <div class="form-group" style="margin-top: 5%;">
+                    <label for="username">Usuario </label>
+                    <input type="text" formControlName="username" class="form-control"  [ngClass]="{ 'is-invalid': submittedUsername }" />
+                    <div  class="invalid-feedback">
+                        <div>Usuario necesario</div>
+                    </div>
+                </div>
+                <div class="form-group" style="margin-top: 5%;">
+                    <label for="password">Contraseña </label>
+                    <input type="password" formControlName="password" class="form-control"  [ngClass]="{ 'is-invalid': submittedPassword }" />
+                    <div  class="invalid-feedback">
+                        <div>Contraseña necesaria</div>
+                    </div>
+                </div>
+                <div class="form-group" style="margin-top: 5%;">
+                    <label for="dni">DNI </label>
+                    <input type="text" formControlName="dni" class="form-control"  [ngClass]="{ 'is-invalid': submittedDni }" />
+                    <div  class="invalid-feedback">
+                        <div>DNI necesario</div>
+                    </div>
+                </div>
+                <div class="form-group" style="margin-top: 5%;">
+                    <label for="tarjeta">Tarjeta de Credito </label>
+                    <input type="text" formControlName="tarjeta" class="form-control"  [ngClass]="{ 'is-invalid': submittedTarjeta }" />
+                    <div  class="invalid-feedback">
+                        <div>Tarjeta necesaria</div>
+                    </div>
+                </div>
+
+                <button [disabled]="loading" style="margin-top: 3%; background-color: #262020; border-color:#100c0c; font-size: 20px;" class="btn btn-primary rating">
+                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                    Regístrate
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
