@@ -18,5 +18,6 @@ import java.util.UUID
 interface ReservaRepository : CoroutineCrudRepository<Reserva, Int> {
 
     fun findByUuid(uuid: UUID): Flow<Reserva>
+    fun findByUsuarioUuid(uuid: String): Flow<Reserva>
 
 }

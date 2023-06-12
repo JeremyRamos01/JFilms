@@ -9,19 +9,24 @@ fun Reserva.toDto() = ReservaDto(
    fila = this.fila,
     uuid = this.uuid,
     numeroButaca = this.numeroButaca,
-    fechaHoraReserva = this.fechaHoraReserva
-
-
+    fechaHoraReserva = this.fechaHoraReserva ,
+    usuarioUuid = this.usuarioUuid,
+    tituloPelicula = this.tituloPelicula
 )
 fun ReservaCreateDto.toModel() = Reserva(
     fila = this.fila,
     numeroButaca = this.numeroButaca,
-    fechaHoraReserva = LocalDate.now()
+    fechaHoraReserva = LocalDate.now(),
+    usuarioUuid = this.usuarioUuid,
+    tituloPelicula = this.tituloPelicula
 )
 
 fun ReservaDto.toModel() = Reserva(
     fila = this.fila,
     numeroButaca = this.numeroButaca,
-    fechaHoraReserva = this.fechaHoraReserva
+    fechaHoraReserva = this.fechaHoraReserva,
+    usuarioUuid = this.usuarioUuid,
+    tituloPelicula = this.tituloPelicula
+
 )
 

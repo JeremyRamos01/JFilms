@@ -37,10 +37,8 @@ class JwtTokenUtil {
             .withHeader(mapOf("typ" to TOKEN_TYPE))
             .withIssuedAt(Date())
             .withExpiresAt(tokenExpirationDate)
-            .withClaim("email", user.email)
             .withClaim("name", user.name)
             .withClaim("roles", user.rol.split(",").toSet().toString())
-
             .sign(Algorithm.HMAC512(jwtSecreto))
     }
 
@@ -54,6 +52,7 @@ class JwtTokenUtil {
     fun validateToken(authToken: String): DecodedJWT? {
         logger.info { "Validando el token: ${authToken}" }
 
+        print(authToken)
         try {
             return JWT.require(Algorithm.HMAC512(jwtSecreto)).build().verify(authToken)
         } catch (e: Exception) {

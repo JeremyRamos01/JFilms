@@ -83,10 +83,11 @@ class UsuarioController
     }
 
     @PutMapping("/me/{uuid}")
-    suspend fun updateMe(@PathVariable uuid: UUID, @Valid @RequestBody UsuarioDto: UsuarioUpdateDto):
+    suspend fun updateMe(@PathVariable uuid: String, @Valid @RequestBody UsuarioDto: UsuarioUpdateDto):
             ResponseEntity<UsuarioDto> {
+
         UsuarioDto.validate()
-        val userFound = UsuarioService.loadUserbyUuid(uuid.toString())
+        val userFound = UsuarioService.loadUserbyUuid(uuid)
         val userUpdated = userFound!!.copy(
             email = UsuarioDto.email,
             name = UsuarioDto.name,

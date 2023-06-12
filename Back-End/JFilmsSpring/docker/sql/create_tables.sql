@@ -44,6 +44,9 @@ CREATE TABLE IF NOT EXISTS reservas
 (
     id    BIGINT AUTO_INCREMENT PRIMARY KEY,
     fila  INTEGER NOT NULL ,
+    uuid varchar(255) UNIQUE,
+    usuario varchar(255) NOT NULL,
+    tituloPelicula varchar(255) NOT NULL,
     butaca INTEGER NOT NULL,
     fechaHoraReserva DATE NOT NULL
 );

@@ -83,10 +83,6 @@ class UsuarioServices
              if (userBBDD != null && userBBDD.id != user.id) {
             throw UsuarioBadRequestException("El Id ya existe")
         }
-            userBBDD = repository.findByEmail(user.email!!).firstOrNull()
-        if (userBBDD != null && userBBDD.id != user.id) {
-            throw UsuarioBadRequestException("El email ya existe")
-        }
 
         try {
             return@withContext repository.save(user)

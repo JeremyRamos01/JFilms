@@ -16,6 +16,10 @@ data class Reserva(
     var uuid: String = UUID.randomUUID().toString(),
     @Column("butaca")
     val numeroButaca: Int,
+    @Column("usuario")
+    val usuarioUuid: String,
+    @Column("tituloPelicula")
+    val tituloPelicula: String,
     @Column("fechaHoraReserva")
     val fechaHoraReserva: LocalDate = LocalDate.now(),
 

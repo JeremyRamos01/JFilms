@@ -32,15 +32,13 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
     implementation("app.moviebase:tmdb-api:1.0.0")
 
-    // Para hacer el logging
+    // logging
     implementation("io.github.microutils:kotlin-logging-jvm:3.0.4")
     implementation("ch.qos.logback:logback-classic:1.4.5")
     // JWT
     implementation("com.auth0:java-jwt:4.2.1")
-    //security provider
 
     implementation("org.springframework.boot:spring-boot-starter-security")
-
     runtimeOnly("org.mariadb:r2dbc-mariadb:1.1.3")
     runtimeOnly("org.mariadb.jdbc:mariadb-java-client")
 
@@ -63,4 +61,9 @@ tasks.withType<KotlinCompile> {
 
 tasks.withType<Test> {
     useJUnitPlatform()
+}
+tasks.jar{
+
+    enabled = false
+
 }

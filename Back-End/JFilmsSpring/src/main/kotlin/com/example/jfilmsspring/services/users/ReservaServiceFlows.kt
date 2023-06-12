@@ -11,6 +11,7 @@ interface ReservaServiceFlows {
     suspend fun findByUuid(uuid: UUID): Result<Reserva, ReservaError>
     suspend fun findById(id: Int): Result<Reserva, ReservaError>
     suspend fun save(Reservas: Reserva): Result<Reserva, ReservaError>
+    suspend fun findByUserUuid(uuid: String): Flow<Reserva>
     suspend fun update(uuid: UUID, Reservas: Reserva): Result<Reserva, ReservaError>
     suspend fun deleteById(id: Int): Result<Reserva, ReservaError>
 }

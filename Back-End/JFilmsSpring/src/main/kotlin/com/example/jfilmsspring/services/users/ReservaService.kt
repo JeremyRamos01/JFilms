@@ -51,6 +51,10 @@ class ReservaService
             ?: Err(ReservaError.NotFound("No existe la reserva  con id: $id"))
     }
 
+    override suspend fun findByUserUuid(uuid: String): Flow<Reserva>{
+        return repository.findByUsuarioUuid(uuid)
+    }
+
     override suspend fun save(Reservas: Reserva): Result<Reserva, ReservaError> {
         return repository.save(Reservas)
             .also { observerChanges(Notificaciones.Tipo.CREATE, it.uuid) }.let { Ok(it) }

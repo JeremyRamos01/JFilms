@@ -6,6 +6,8 @@ import java.util.*
 data class ReservaCreateDto(
     val fila: Int,
     val numeroButaca: Int,
+    val usuarioUuid: String,
+    val tituloPelicula: String,
     val fechaHoraReserva: LocalDate?
 )
 
@@ -13,6 +15,8 @@ data class ReservaDto(
     val fila: Int,
     var uuid: String,
     val numeroButaca: Int,
+    val usuarioUuid: String,
+    val tituloPelicula: String,
     val fechaHoraReserva: LocalDate
 
 )

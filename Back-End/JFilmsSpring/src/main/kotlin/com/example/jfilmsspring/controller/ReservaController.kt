@@ -36,6 +36,14 @@ class ReservaController
 
     }
 
+    @GetMapping ("lista/{uuid}")
+    suspend fun findReservasByUserUuid(@PathVariable  uuid: String): ResponseEntity<List<ReservaDto>>{
+        val res = reservaService.findByUserUuid(uuid)
+            .toList()
+            .map { it.toDto() }
+        return ResponseEntity.ok(res)
+    }
+
     @GetMapping("/{id}")
     suspend fun findById(@PathVariable id: UUID): ResponseEntity<ReservaDto> {
         reservaService.findByUuid(id).mapBoth(
