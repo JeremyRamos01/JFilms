@@ -10,8 +10,6 @@ import { CreditsResponse } from '../interfaces/credits-response';
   providedIn: 'root'
 })
 export class PeliculasService {
-
-  carteleraPage = 1;
   public cargando : boolean = false;
 
   constructor(private http: HttpClient) {
@@ -21,7 +19,6 @@ export class PeliculasService {
     return{
       api_key:'8a9f323efcc9446dd444dd37330c4fde',
       language:'es-ES',
-      page:this.carteleraPage
    }}
 
    buscarPelicula(nombre: string):Observable<Movie[]>
@@ -39,14 +36,11 @@ export class PeliculasService {
     if(this.cargando){
       return;
     }
-    this.cargando = true;
     return this.http.get<Movie[]>(`http://localhost:7070/api/peliculas`
-    ).pipe(
-      tap(() =>{
-        this.cargando = false;
-      })
     )
   }
+
+
   
 
 

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import {Location} from '@angular/common';
 import { Butacas } from 'src/app/interfaces/butacas';
 import { UsuarioService } from 'src/app/services/usuario.service';
@@ -21,19 +21,23 @@ export class ReservaComponent {
   username : string = localStorage.getItem('username')!;
   usuario!: Usuario;
   loading: boolean = false;
+  nombrePelicula: string = "";
 
   constructor(
     private location: Location,
     private usuarioService: UsuarioService,
     private reservaService: ReservaService,
     private route: ActivatedRoute,
+    private router: Router,
     
   ) {
+    this.nombrePelicula = String(this.route.snapshot.paramMap.get('nombre'));
     const listaReservadasOriginal = this.route.snapshot.queryParamMap.get('lista');
     this.reservadas = JSON.parse(listaReservadasOriginal!);
     this.precioTotal = this.reservadas.length * this.precioPorButaca;
     this.usuarioService.getUsuario(this.username).subscribe(x=>{
       this.usuario = x;
+      localStorage.setItem('uuid', this.usuario.uuid);
     }
     );
     
@@ -52,15 +56,20 @@ export class ReservaComponent {
           this.loading = false;
         });
       }
-    }, 2000 );
+    }, 3000 );
     this.reservadas.forEach(x=>{
       const reservaCreada: Reserva = {
         fila: x.fila,
-        numeroButaca: x.numero
+        numeroButaca: x.numero,
+        usuarioUuid: this.usuario.uuid,
+        tituloPelicula: this.nombrePelicula
+
       }
     this.reservaService.postReserva(reservaCreada).subscribe(x=>{
       console.log(x);
     })});
+    this.router.navigate(['/home']);
     
 }
+
 }

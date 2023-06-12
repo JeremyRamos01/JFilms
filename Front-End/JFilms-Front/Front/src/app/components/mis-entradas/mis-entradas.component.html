@@ -1,0 +1,48 @@
+
+<div class="rating">
+    <button class="btn btn-outline-danger" (click)="onRegresar()">Volver</button>
+</div>
+
+
+
+<table class="table table-bordered" style="color: white;margin-top: 5%;">
+    <thead>
+        <tr style="border: none;">
+            <th scope="col" class="tableTitle" style="border: none;">Fila</th>
+            <th scope="col" class="tableTitle" style="border: none;">Butaca</th>
+            <th scope="col" class="tableTitle" style="border: none;">Pelicula</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr style="text-align: center;" *ngFor="let entrada of entradas">
+            <td style="padding-top: 2%;padding-bottom: 2%;font-size: 30px;">{{entrada.fila}}</td>
+            <td style="padding-top: 2%;padding-bottom: 2%;font-size: 30px;">{{entrada.numeroButaca}}</td>
+            <td style="padding-top: 2%;padding-bottom: 2%;font-size: 30px;">{{entrada.tituloPelicula}}</td>
+            <td style="padding-top: 2%;padding-bottom: 2%;font-size: 30px;"><button (click)="generarQR(entrada)" class="p-button reservedButton plus ">QR</button></td>
+        </tr>
+    </tbody> 
+</table> 
+
+<p-dialog [(visible)]="loading" [modal]="true" [style]="{width: '50vw'}"
+    [draggable]="false" [resizable]="false" [closable]="true">
+    <div class="grid">
+      <div class="col-12 centered-text modal-text" style="text-align: center;font-size: x-large;">
+        <label><b>Pelicula:</b> {{tituloPelicula}}</label><br>
+
+        <label><b>Fecha:</b> {{fecha}}</label><br>
+
+        <label><b>Butaca:</b> Fila:{{fila}} Nº Butaca: {{columna}}</label><br>
+       
+        <label>{{precio}}€</label>
+
+        </div>
+    </div>
+
+    <div class="grid" style="margin-left: 42%;">
+        <ngx-qrcode
+        [elementType]="elementType"
+        [errorCorrectionLevel]="correctionLevel"
+        [value]="value"
+        cssClass="bshadow"></ngx-qrcode>
+    </div>
+</p-dialog>

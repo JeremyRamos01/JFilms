@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { User } from '../interfaces/user';
 import { Token } from '../interfaces/token';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class LoginService {
 
    }
 
-   login(name: string, password: string){
+   login(name: string, password: string):Observable<User>{
       return this.http.post<User>('http://localhost:7070/api/users/login', {name, password})
    }
 

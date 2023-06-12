@@ -45,7 +45,7 @@ constructor(private activatedRoute: ActivatedRoute,
   }
 
   onButacas(id: number){
-    this.route.navigate(['/butacas', id]);
+    this.route.navigate(['/butacas', id, this.movie.title]);
   }
 
   onRegresar(){

@@ -17,7 +17,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegisterComponent } from './register/register.component';
 import { ButacasComponent } from './butacas/butacas.component';
 import { ReservaComponent } from './reserva/reserva.component';
-
+import { MisEntradasComponent } from './mis-entradas/mis-entradas.component';
+import { PerfilComponent } from './perfil/perfil.component';
+import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
 
 
 
@@ -30,7 +32,9 @@ import { ReservaComponent } from './reserva/reserva.component';
     LoginComponent,
     RegisterComponent,
     ButacasComponent,
-    ReservaComponent
+    ReservaComponent,
+    MisEntradasComponent,
+    PerfilComponent
   ],
   imports: [
     CommonModule,
@@ -43,7 +47,8 @@ import { ReservaComponent } from './reserva/reserva.component';
     BrowserAnimationsModule,
     ButtonModule,
     DialogModule,
-    ProgressSpinnerModule
+    ProgressSpinnerModule,
+    NgxQRCodeModule
   ],
   exports:[
     NavbarComponent,
@@ -53,7 +58,9 @@ import { ReservaComponent } from './reserva/reserva.component';
     LoginComponent,
     RegisterComponent,
     ButacasComponent,
-    ReservaComponent
+    ReservaComponent,
+    MisEntradasComponent,
+    PerfilComponent
   ]
 })
 export class ComponentsModule { }

@@ -53,6 +53,7 @@ export class LoginComponent {
            this.loginService.login(this.loginForm.value.username, this.loginForm.value.password).subscribe(x=>{
             if(this.loginService.obtenerDatosToken(x.token)?.name == this.loginForm.value.username){
                 localStorage.setItem('username', this.loginForm.value.username);
+                localStorage.setItem('token', x.token);
                 this.router.navigate(['/home']);
             }else{
                 this.loading = true;

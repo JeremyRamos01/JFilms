@@ -17,5 +17,6 @@ export class UsuarioService {
   updateUsuario(usuario:Usuario):Observable<Usuario>{
     return this.http.put<Usuario>(`http://localhost:7070/api/users/me/${usuario.uuid}`, usuario)
   }
+  
 }
 

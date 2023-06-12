@@ -8,6 +8,8 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ButacasComponent } from './components/butacas/butacas.component';
 import { ReservaComponent } from './components/reserva/reserva.component';
+import { MisEntradasComponent } from './components/mis-entradas/mis-entradas.component';
+import { PerfilComponent } from './components/perfil/perfil.component';
 
 const routes: Routes = [
 
@@ -19,8 +21,17 @@ const routes: Routes = [
     path: 'registrarse',
     component: RegisterComponent
   },
+  {
+    path: 'misEntradas',
+    component: MisEntradasComponent
+
+  },
+  {
+    path: 'perfil',
+    component: PerfilComponent
+  },
   { 
-    path: 'reservar',
+    path: 'reservar/:nombre',
     component: ReservaComponent
   },
   {
@@ -28,7 +39,7 @@ const routes: Routes = [
     component: PeliculaComponent
   },
   {
-    path: 'butacas/:id',
+    path: 'butacas/:id/:nombre',
     component: ButacasComponent
   },
   {
@@ -43,6 +54,7 @@ const routes: Routes = [
     path: '**',
     redirectTo: '/loguear'
   },
+  
   
 
 ]

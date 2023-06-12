@@ -1,4 +1,4 @@
-/* import { Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import {
   HttpRequest,
   HttpHandler,
@@ -7,7 +7,6 @@ import {
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { LoginService } from '../services/login.service';
-import { TaskCollectorService } from '../services/task-collector.service';
 import { Router } from '@angular/router';
 
 @Injectable()
@@ -17,16 +16,15 @@ export class TokenInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
 
-    if (this.loginService.isAuthenticated()) {
+    if (this.loginService.obtenerDatosToken(localStorage.getItem('token')!) != null) {
 
-      if (this.loginService.token != null) {
-        const token = this.loginService.token;
+        const token = localStorage.getItem('token');
         if (token != null && token.length > 0) {
           const clone = request.clone({
             headers: request.headers.set("Authorization", "Bearer " + token)
           });
+          console.log("TokenInterceptor: " + clone.headers.get("Authorization"));
           return next.handle(clone);
-        }
 
       }
 
@@ -34,10 +32,6 @@ export class TokenInterceptor implements HttpInterceptor {
     } else {
       this.router.navigateByUrl('')
     }
-
-
-
     return next.handle(request);
   }
 }
- */

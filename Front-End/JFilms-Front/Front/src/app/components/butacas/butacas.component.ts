@@ -15,6 +15,7 @@ export class ButacasComponent implements OnInit {
   isSeleccionada =false;
   idSala: number = 0;
   listaReservadas: Butacas[] = [];
+  nombrePelicula: string = "";
   constructor(private butacasService: ButacasService, private router : ActivatedRoute, private route: Router) {
     this.butacasService.getButacasBySala(this.idSala).subscribe(
       butacas => {
@@ -25,6 +26,7 @@ export class ButacasComponent implements OnInit {
 
   ngOnInit(): void {
     this.asientos = 0;
+    this.nombrePelicula = String(this.router.snapshot.paramMap.get('nombre'));
     this.idSala = Number(this.router.snapshot.paramMap.get('id'));
     /* haz que cada 5s se repita el metodo de abajo */
       this.butacasService.getButacasBySala(this.idSala).subscribe(
@@ -61,7 +63,7 @@ export class ButacasComponent implements OnInit {
     }
 
     onReservar(){
-      this.route.navigate(['/reservar'], { queryParams: { lista: JSON.stringify(this.listaReservadas)}});
+      this.route.navigate(['/reservar', this.nombrePelicula], { queryParams: { lista: JSON.stringify(this.listaReservadas)}});
     }
 
     reservar(){
