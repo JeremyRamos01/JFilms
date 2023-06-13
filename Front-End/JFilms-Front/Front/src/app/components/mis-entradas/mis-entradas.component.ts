@@ -15,7 +15,7 @@ export class MisEntradasComponent {
   entradas : ReservaDto[]=[];
   elementType = NgxQrcodeElementTypes.URL;
   correctionLevel = NgxQrcodeErrorCorrectionLevels.HIGH;
-  value = 'https://www.youtube.com';
+  value = 'https://jfilms-dev.netlify.app';
 
   tituloPelicula: string = "";
   fila: number = 0;
