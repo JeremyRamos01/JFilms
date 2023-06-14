@@ -13,7 +13,10 @@ public movies: Movie[] = [];
 public moviesSlideShow: Movie[] = [];
 
 
+
 constructor( private service :PeliculasService ){
+  
+
   }
 
   ngOnInit(): void {

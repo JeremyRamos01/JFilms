@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Butacas } from 'src/app/interfaces/butacas';
 import { ButacasService } from 'src/app/services/butacas.service';
+import { WebsocketServiceService } from 'src/app/services/websocket-service.service';
 
 @Component({
   selector: 'app-butacas',
@@ -16,7 +17,16 @@ export class ButacasComponent implements OnInit {
   idSala: number = 0;
   listaReservadas: Butacas[] = [];
   nombrePelicula: string = "";
-  constructor(private butacasService: ButacasService, private router : ActivatedRoute, private route: Router) {
+  constructor(private butacasService: ButacasService, private router : ActivatedRoute, private route: Router,
+    private websocketService: WebsocketServiceService) {
+    this.websocketService.connect().subscribe(x =>{
+      console.log(x);
+      this.butacasService.getButacasBySala(this.idSala).subscribe(
+        butacas => {
+          this.butacas = butacas;
+        }
+      );
+    });
     this.butacasService.getButacasBySala(this.idSala).subscribe(
       butacas => {
         this.butacas = butacas;
@@ -25,10 +35,10 @@ export class ButacasComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.listaReservadas = [];
     this.asientos = 0;
     this.nombrePelicula = String(this.router.snapshot.paramMap.get('nombre'));
     this.idSala = Number(this.router.snapshot.paramMap.get('id'));
-    /* haz que cada 5s se repita el metodo de abajo */
       this.butacasService.getButacasBySala(this.idSala).subscribe(
         butacas => {
           this.butacas = butacas;
@@ -63,12 +73,13 @@ export class ButacasComponent implements OnInit {
     }
 
     onReservar(){
+      
       this.route.navigate(['/reservar', this.nombrePelicula], { queryParams: { lista: JSON.stringify(this.listaReservadas)}});
     }
 
     reservar(){
       if(this.listaReservadas.length > this.asientos){
-        console.log("No se puede reservar mas butacas de las que hay");
+        alert("No puede reservar más butacas de las que seleccionó")
         return;
       }else{
         this.onReservar();

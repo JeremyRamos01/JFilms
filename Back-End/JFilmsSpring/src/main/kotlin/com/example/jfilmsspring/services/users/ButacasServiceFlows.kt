@@ -11,6 +11,7 @@ interface ButacasServiceFlows {
     suspend fun findByUuid(uuid: UUID): Result<Butacas,ButacasError>
     suspend fun findById(id: Int?): Result<Butacas, ButacasError>
     suspend fun  findBySalaId(salaId: Int): Flow<Butacas>
+    suspend fun findByFilaAndNumero(fila: Int, numero: Int):  Result<Butacas,ButacasError>
     suspend fun save(Butacas: Butacas): Result<Butacas, ButacasError>
     suspend fun update(uuid: Int, Butacas: Butacas): Result<Butacas, ButacasError>
     suspend fun deleteById(id: Int): Result<Butacas, ButacasError>

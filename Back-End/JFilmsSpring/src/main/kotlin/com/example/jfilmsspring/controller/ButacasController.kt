@@ -40,6 +40,18 @@ class ButacasController
 
     }
 
+    @GetMapping("/especifica/{fila}/{numero}")
+    suspend fun findByFilaAndNumero(@PathVariable fila: Int, @PathVariable numero: Int): ResponseEntity<ButacaDto>{
+        butacasService.findByFilaAndNumero(fila,numero).mapBoth(
+            success = {
+                return ResponseEntity.ok(
+                    it.toDto(salasService.findById(it.salaId).get()!!)
+                )
+            },
+            failure = { return handleErrors(it) }
+        )
+    }
+
     @GetMapping("/butacasPorSala/{salaId}")
     suspend fun finAllBySalaId(@PathVariable salaId: Int): ResponseEntity<List<ButacaDto>> {
 

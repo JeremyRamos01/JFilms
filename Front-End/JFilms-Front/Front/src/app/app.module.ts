@@ -11,6 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { ComponentsModule } from './components/components.module';
 import { PagesModule } from './pages/pages.module';
 import { TokenInterceptor } from './services/token-interceptor';
+import { WebsocketServiceService } from './services/websocket-service.service';
 
 
 
@@ -30,7 +31,8 @@ import { TokenInterceptor } from './services/token-interceptor';
     ButtonModule
 
   ],
-  providers: [{ provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+    WebsocketServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

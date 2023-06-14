@@ -20,6 +20,7 @@ import { ReservaComponent } from './reserva/reserva.component';
 import { MisEntradasComponent } from './mis-entradas/mis-entradas.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
+//import { WebScoketComponent } from './web-scoket/web-scoket.component';
 
 
 
@@ -34,7 +35,8 @@ import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
     ButacasComponent,
     ReservaComponent,
     MisEntradasComponent,
-    PerfilComponent
+    PerfilComponent,
+    
   ],
   imports: [
     CommonModule,
@@ -60,7 +62,8 @@ import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
     ButacasComponent,
     ReservaComponent,
     MisEntradasComponent,
-    PerfilComponent
+    PerfilComponent,
+  
   ]
 })
 export class ComponentsModule { }

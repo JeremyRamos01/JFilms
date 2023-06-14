@@ -10,6 +10,7 @@ import { ButacasComponent } from './components/butacas/butacas.component';
 import { ReservaComponent } from './components/reserva/reserva.component';
 import { MisEntradasComponent } from './components/mis-entradas/mis-entradas.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
+//import { WebScoketComponent } from './components/web-scoket/web-scoket.component';
 
 const routes: Routes = [
 
@@ -21,6 +22,7 @@ const routes: Routes = [
     path: 'registrarse',
     component: RegisterComponent
   },
+
   {
     path: 'misEntradas',
     component: MisEntradasComponent

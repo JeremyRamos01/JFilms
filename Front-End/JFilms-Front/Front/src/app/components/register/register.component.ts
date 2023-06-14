@@ -42,6 +42,12 @@ export class RegisterComponent {
           tarjeta: ['', Validators.required]
       });
   }
+
+  onRegresar(){
+        console.log("regresar");
+        this.router.navigate(['/login']);
+    }
+
   onSubmit() {
       if(this.loginForm.value.password == "" || this.loginForm.value.password.length <4){
           this.submittedPassword = true;

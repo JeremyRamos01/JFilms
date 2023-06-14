@@ -17,6 +17,7 @@ import java.util.UUID
 interface ButacasRepository : CoroutineCrudRepository<Butacas, Int> {
     fun findByUuid(Uuid: UUID): Flow<Butacas>
     fun findBySalaId(salaId: Int): Flow<Butacas>
+    fun findByFilaAndNumero (filaId: Int, numero:Int): Flow<Butacas>
 }
 
 

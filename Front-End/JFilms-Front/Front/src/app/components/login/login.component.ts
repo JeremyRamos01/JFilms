@@ -24,11 +24,12 @@ export class LoginComponent {
         private router: Router,
         private loginService: LoginService
        
-    ) { 
-        
+    ) {
+       
     }
 
     ngOnInit() {
+        
         this.loginForm = this.formBuilder.group({
             username: ['', Validators.required],
             password: ['', Validators.required]

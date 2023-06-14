@@ -1,5 +1,6 @@
 <div class="col-md-6 offset-md-3 mt-5">
     <div class="card" style="background-color: #262020;color: white; box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);margin-top: 10%;">
+            <button class="btn btn-outline-danger" (click)="onRegresar()">Volver</button>
         <h4 class="card-header rating" style="text-align: center;font-size: 40px; ">Register</h4>
         <div class="card-body">
             <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">

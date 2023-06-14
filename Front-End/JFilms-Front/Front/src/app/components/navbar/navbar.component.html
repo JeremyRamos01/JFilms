@@ -1,8 +1,11 @@
 <nav class="navbar navbar-expand-sm barra">
-    <div class="container-fluid">
+    <div class="container-fluid" *ngIf="show">
         <a class="navbar-brand rating animate__animated animate__backInRight animate_slow" routerLink="/home" routerLinkActive="active">JFilms</a>
         <a class="navbar-brand subtitels animate__animated animate__backInRight animate_slow" routerLink="/misEntradas" routerLinkActive="active">Mis Entradas</a>
-        <a class="navbar-brand subtitels animate__animated animate__backInRight animate_slow" routerLink="/perfil" routerLinkActive="active">Perfíl</a>
+        <a class="navbar-brand subtitels animate__animated animate__backInRight animate_slow" routerLink="/perfil" routerLinkActive="active"> Perfíl</a>
+        <a class="navbar-brand subtitels animate__animated animate__backInRight animate_slow" routerLink="/loguear" routerLinkActive="active">Log Out</a>
+
+        
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">

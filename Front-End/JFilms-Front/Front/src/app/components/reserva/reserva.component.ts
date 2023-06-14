@@ -6,6 +6,7 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 import { Usuario } from 'src/app/interfaces/usuario';
 import { ReservaService } from 'src/app/services/reserva.service';
 import { Reserva } from 'src/app/interfaces/reserva';
+import { ButacasService } from 'src/app/services/butacas.service';
 
 @Component({
   selector: 'app-reserva',
@@ -29,6 +30,7 @@ export class ReservaComponent {
     private reservaService: ReservaService,
     private route: ActivatedRoute,
     private router: Router,
+    private butacaService: ButacasService
     
   ) {
     this.nombrePelicula = String(this.route.snapshot.paramMap.get('nombre'));
@@ -56,20 +58,25 @@ export class ReservaComponent {
           this.loading = false;
         });
       }
-    }, 3000 );
+      this.router.navigate(['/home']);
+    }, 5000 );
     this.reservadas.forEach(x=>{
       const reservaCreada: Reserva = {
         fila: x.fila,
         numeroButaca: x.numero,
         usuarioUuid: this.usuario.uuid,
         tituloPelicula: this.nombrePelicula
-
       }
+      this.butacaService.getButacaByFilaAndNumero(x.fila, x.numero).subscribe(y=>{
+        y.reservada = false;
+        y.tomada = true;
+        this.butacaService.updateButaca(y).subscribe(z=>{
+          console.log(z);
+        })
+      })
     this.reservaService.postReserva(reservaCreada).subscribe(x=>{
       console.log(x);
     })});
-    this.router.navigate(['/home']);
-    
 }
 
 }
